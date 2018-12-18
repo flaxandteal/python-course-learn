@@ -44,10 +44,10 @@ def run():
     # print(df.describe())
     
     # Get a geopandas dataframe, from a normal pandas one
-    gdf = utils.to_geo_dataframe(df)
+    # gdf = utils.to_geo_dataframe(df)
     
     # Create a plot
-    utils.plot_gdf("output.html", gdf)
+    # utils.plot_gdf("output.html", gdf)
     
     # CompSci Building 54.5817428 -5.9374874
     closest_carpark(gdf, [54.5817428, -5.9374874])
