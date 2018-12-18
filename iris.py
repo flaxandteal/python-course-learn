@@ -16,8 +16,13 @@ from sklearn import datasets
 from pandas.tools.plotting import scatter_matrix
 
 def run():
-    url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-    df = pandas.read_csv(url)
+    # Why is this if-statement here? Why don't we just use lines 21-22?
+    if not os.path.exists('iris.data'):
+        url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+        df = pandas.read_csv(url, header=None)
+        df.to_csv('iris.data', header=False, index=False)
+    
+    df = pandas.read_csv('./iris.data', header=None)
     
     # When you are happy with what this looks like, remove it!
     print(df)
@@ -61,21 +66,14 @@ def run():
     # 0 - What, in words, is each slicing operation doing?
     #
     # 1 - Download the CSV and open it from the same folder as script (still with read_csv)
-    # RUN git commit -a -m "finished task 1" ON COMMAND LINE
     
     # 2 - Add plots of sepal length, sepal width, petal length and petal width using Pandas'
     #      - scatter_matrix (hint: create a dataframe with those four columns)
     #      - RadViz (familiar looking dataset on the Pandas manual page!)
-    # RUN git commit -a -m "finished task 2" ON COMMAND LINE
     
     # 3 - Switch to using "test_train_split" instead of using "-10" and slicing
-    # RUN git commit -a -m "finished task 3" ON COMMAND LINE
     
     # 4 - Instead of using "score", use "cross_val_score": http://scikit-learn.org/stable/modules/cross_validation.html#cross-validation
-    # RUN git commit -a -m "finished task 4" ON COMMAND LINE
-    
-    # 5 - Perform the same study using the K Nearest Neighbour approach to see which works best
-    # RUN git commit -a -m "finished task 5" ON COMMAND LINE
 
 if __name__ == "__main__":
     run()
