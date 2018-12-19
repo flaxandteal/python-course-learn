@@ -7,6 +7,7 @@ Test learning algorithms on the classic Iris dataset.
 @license: MIT
 """
 
+import os
 import numpy as np
 import pandas
 
@@ -32,14 +33,14 @@ def run():
     df = df.reindex(reordering)
     
     # This is the set of inputs
-    X_training = df.iloc[:-50, :-1]
+    X_training = df.iloc[:-30, :-1]
     # This is the known classifiers
-    y_training_target = df.iloc[:-50, -1]
+    y_training_target = df.iloc[:-30, -1]
     
     # This set we will use for testing the model
-    X_testing = df.iloc[-50:, :-1]
+    X_testing = df.iloc[-30:, :-1]
     # We will measure our predictions against these
-    y_testing_target = df.iloc[-50:, -1]
+    y_testing_target = df.iloc[-30:, -1]
     
     # Make a model
     classifier = svm.SVC(kernel='linear', C=1).fit(X_training, y_training_target)
@@ -59,8 +60,6 @@ def run():
     ]
     print(classifier.predict(samples))
     
-    scatter_matrix(X_training)
-    
     # TASKS
     #------
     # 0 - What, in words, is each slicing operation doing?
@@ -71,7 +70,7 @@ def run():
     #      - scatter_matrix (hint: create a dataframe with those four columns)
     #      - RadViz (familiar looking dataset on the Pandas manual page!)
     
-    # 3 - Switch to using "test_train_split" instead of using "-10" and slicing
+    # 3 - Switch to using "test_train_split" instead of using "-30" and slicing
     
     # 4 - Instead of using "score", use "cross_val_score": http://scikit-learn.org/stable/modules/cross_validation.html#cross-validation
 
