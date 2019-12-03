@@ -14,7 +14,7 @@ import pandas
 from sklearn import svm
 
 from sklearn import datasets
-from pandas.tools.plotting import scatter_matrix
+from pandas.plotting import scatter_matrix
 
 def run():
     # Why is this if-statement here? Why don't we just use lines 21-22?
