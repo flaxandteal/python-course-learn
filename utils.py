@@ -21,5 +21,5 @@ def plot_gdf(filename, gdf):
         zoom_start=10
     )
     carparks = folium.features.GeoJson(gdf)
-    map.add_children(carparks)
+    map.add_child(carparks)
     map.save(filename)
